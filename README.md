@@ -1,0 +1,4 @@
+CandyCart
+=========
+
+Ecommerce for CandyCMS
