@@ -1,0 +1,9 @@
+.tabview{
+	background: #fff;
+	width: 850px;
+	float: right;
+	border: 1px solid #ccc;
+	padding: 15px;
+	-webkit-border-radius: 5px;
+	margin: 0 0 20px;
+}
