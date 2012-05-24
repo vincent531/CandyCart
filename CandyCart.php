@@ -76,4 +76,49 @@ class CandyCart {
  		return array('{{candycart}}' => $replace);	
  	}
 	
+	public static function productTable(){
+	
+		$dbh = new CandyDB();
+		$sth = $dbh->prepare('SELECT * FROM '. DB_PREFIX .'candycart');
+		$sth->execute();
+		
+		$products = $sth->fetchAll(PDO::FETCH_CLASS);
+		
+		$table = '<table>';
+		$table .= '<thead>';
+		$table .= '<th>Product Name</th>';
+		$table .= '<th>Qty</th>';
+		$table .= '</thead>';
+		$table .= '<tbody>';
+		
+		foreach ($products as $product) {
+			
+			$table .= '<tr>';
+			$table .= "<td>{$product->product_name}</td>";
+			$table .= "<td>{$product->product_qty}</td>";
+			$table .= '</tr>';
+			
+		}
+		
+		$table .= '</tbody>';
+		$table .= '</table>';
+		
+		echo $table;
+		 
+	}
+	
+	public static function addProduct($name, $qty, $description, $images = false){
+		
+		addslashes($name);
+		addslashes($qty);
+		addslashes($description);
+		
+		if($images != false) json_encode($images);
+		
+		$dbh = new CandyDB();
+		$sth = $dbh->prepare("INSERT INTO ". DB_PREFIX ."candycart (product_name, product_qty, product_desc, product_images) VALUES ('$name', '$qty', '$description', '$images')");
+		$sth->execute();
+		
+	}
+	
 }

@@ -1,9 +1,61 @@
 .tabview{
 	background: #fff;
-	width: 850px;
+	width: 800px;
 	float: right;
 	border: 1px solid #ccc;
 	padding: 15px;
 	-webkit-border-radius: 5px;
 	margin: 0 0 20px;
+}
+
+.tablist{
+	width: 110px;
+}
+
+.tablist li{
+	margin: 0 0 10px;
+	position: relative;
+	padding: 5px
+}
+
+.tablist a{
+	font-size: 1.3em;
+	font-weight: lighter;
+	text-decoration: none;
+}
+
+.tablist a:hover{
+	text-decoration: underline;
+}
+
+.active-tab {
+	position: relative;
+	background: #fff;
+	border: 1px solid #ccc;
+	padding: 4px !important;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+}
+.active-tab:after, .active-tab:before {
+	left: 100%;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+}
+
+.active-tab:after {
+	border-left-color: #fff;
+	border-width: 5px;
+	top: 50%;
+	margin-top: -5px;
+}
+.active-tab:before {
+	border-left-color: #ccc;
+	border-width: 6px;
+	top: 50%;
+	margin-top: -6px;
 }
